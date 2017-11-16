@@ -18,9 +18,11 @@
     "Spanish": "Spanish",
     "Italian": "Italian",
     "Farsi": "Farsi",
-    "Search" : "Search",
-    "Settings" : "Settings",
-    "Profile" : "Profile",
-    "Inbox" : "Inbox",
-    "Log Out" : "Log Out"
+    "Search": "Search",
+    "Settings": "Settings",
+    "Profile": "Profile",
+    "Inbox": "Inbox",
+    "Log Out": "Log Out",
+    "DUMP118": "DUMP 118",
+    "Mappa": "Mappa"
 }

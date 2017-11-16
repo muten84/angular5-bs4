@@ -26,6 +26,17 @@ $topnav-height: 65px;
             padding-right: 6px;
             height: $topnav-height;
         }
+        .nav-link {
+            color: #fff;
+            border-right: 0.1px;
+            border-right-color: #072c3f;
+            border-right-style: groove;
+            padding-right: 6px;
+            height: $topnav-height;
+            .row {
+                margin: 0px;
+            }
+        }
         .nav-item>a {
             color: #ecf0f1;
             &:hover {
