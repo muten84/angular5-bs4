@@ -1,5 +1,6 @@
 $topnav-background-color: #00809d;
 $topnav-height: 65px;
+$success-color: #81b85c !default;
 .fixed-top {
     position: fixed;
     top: 0;
@@ -11,6 +12,10 @@ $topnav-height: 65px;
 .logo {
     background-color: white !important;
     margin-right: 0px !important;
+}
+
+.connected {
+    color: $success-color;
 }
 
 :host {
@@ -36,6 +41,9 @@ $topnav-height: 65px;
             .row {
                 margin: 0px;
             }
+        }
+        a.nav-link.grouped {
+            border: 0px !important;
         }
         .nav-item>a {
             color: #ecf0f1;
@@ -67,4 +75,17 @@ $topnav-height: 65px;
             }
         }
     }
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 24px;
+    vertical-align: 7px;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
 }

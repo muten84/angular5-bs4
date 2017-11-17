@@ -5,3 +5,53 @@
 @import "utils";
 @import "rtl";
 @import "responsive";
+
+/*material design components*/
+
+$mdc-theme-primary: #00809d;
+$mdc-theme-secondary: #009688;
+$mdc-theme-background: rgba(236, 240, 241, 0.9490196078431372);
+$mdc-theme-primary-light:#B2DFDB;
+$mdc-theme-primary-dark:#004D40;
+$mdc-theme-secondary:#009688;
+$mdc-theme-secondary-light:#E0F2F1;
+$mdc-theme-secondary-dark:#00695C;
+$mdc-theme-primary-bg:#B2DFDB;
+$mdc-theme-primary-light-bg:#009688;
+$mdc-theme-primary-dark-bg:#009688;
+$mdc-theme-secondary-bg:#E0F7FA;
+$mdc-theme-secondary-light-bg:#E0F2F1;
+$mdc-theme-secondary-dark-bg:#80CBC4;
+
+/*$mdc-theme-primary: #00809d;
+$mdc-theme-secondary: #00809d;
+$mdc-theme-background: #00809d;
+$mdc-theme-primary-light: #00809d;
+$mdc-theme-primary-dark:#00809d;
+$mdc-theme-secondary:#00809d;
+$mdc-theme-secondary-light:#00809d;
+$mdc-theme-secondary-dark:#00809d;
+$mdc-theme-primary-bg:#00809d;
+$mdc-theme-primary-light-bg:#00809d;
+$mdc-theme-primary-dark-bg:#00809d;
+$mdc-theme-secondary-bg:#00809d;
+$mdc-theme-secondary-light-bg:#00809d;
+$mdc-theme-secondary-dark-bg:#00809d;*/
+
+$dd-arrow-padding: 250px;
+@import "material-components-web/material-components-web";
+.snippet-container {
+    position: relative;
+    height: 65px;
+    flex: 1;
+    left: 50px;
+}
+
+.mdc-menu-anchor {
+    position: absolute;
+}
+
+md-select-menu md-option:focus[selected] {
+    /* some other background color, or other styles */
+    background: rgb(238, 238, 238);
+}

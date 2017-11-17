@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ApplicationStatus, TimeService, ApplicationStatusService } from '../../../service/service.module';
+
+import { Subscriber, Observable, BehaviorSubject, Subject } from 'rxjs/Rx';
+import 'rxjs/Rx';
+
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
+
 
 @Component({
     selector: 'app-header',
@@ -8,9 +15,16 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    pushRightClass: string = 'push-right';
+    @BlockUI('header-section') blockUI: NgBlockUI;
 
-    constructor(private translate: TranslateService, public router: Router) {
+    pushRightClass: string = 'push-right';
+    connected: boolean;
+
+    currentTime: Promise<Date>;
+    observableCurrentTime: Observable<Date>;
+    observableApplicationStatus: Observable<ApplicationStatus>;
+
+    constructor(private appStatusService: ApplicationStatusService, private timeService: TimeService, private translate: TranslateService, public router: Router) {
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&
@@ -22,7 +36,38 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        console.log("creating observable...");
+        this.currentTime = this.timeService.getAsyncCurrentTime();
+        //observable dello stato dell'applicazione per ricevere le informazioni sulla header bar del turno corrente
+        this.observableApplicationStatus = this.appStatusService.getApplicationStatusObservable();
+        this.blockUI.start();
+        this.observableApplicationStatus.subscribe((val: ApplicationStatus) => {
+            console.log("manually subscribed to application status received: " + JSON.stringify(val));
+            this.connected = val.connectionStatus.connected;
+
+            this.blockUI.stop();
+        })
+        //observable dell'orario
+        this.observableCurrentTime = new Observable<Date>((observer: Subscriber<Date>) => {
+
+            /**/
+            setInterval(() => {
+                console.log("setInterval  from  " + (observer));
+                this.timeService.getAsyncCurrentTime().then(
+                    (d) => {
+                        observer.next(d)
+                    },
+                    (err) => {
+                        observer.next(err)
+                    }
+                )
+            }, 1000);
+
+        });
+        this.appStatusService.refreshApplicationStatus();
+
+    }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -46,4 +91,5 @@ export class HeaderComponent implements OnInit {
     changeLang(language: string) {
         this.translate.use(language);
     }
+
 }

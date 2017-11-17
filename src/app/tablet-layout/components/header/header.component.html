@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top rounded">
+<nav class="navbar navbar-expand-lg fixed-top rounded" *blockUI="'header-section'">
     <!--    <div class="navbar-nav">     
         <a class="navbar-brand logo" href="#"><img src="assets/images/logo-header.png" /></a>
     </div>
@@ -24,7 +24,9 @@
                         <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
                     </div>
                     <div class="col-xs-1" style="padding-right: 21px;">
-                        <span>14:30</span><br /><span>10/02/2017</span>
+                        <span> {{ observableCurrentTime | async | date:'HH:mm:ss'}}</span>
+                        <br />
+                        <span>{{ currentTime | async | date:'dd-MM-yyyy'}}</span>
                     </div>
                 </div>
             </a>
@@ -34,10 +36,10 @@
             <a class="nav-link">
                 <div class="col-xs-1" style="padding-right: 20px;padding-left: 20px">
                     <div class="row">
-                        <span><strong>Bologna 103</strong></span>
+                        <span><strong>{{(observableApplicationStatus | async)?.currentTurn?.resource}}</strong></span>
                     </div>
                     <div class="row">
-                        <span>Inizio turno <strong>13:00</strong></span>
+                        <span>Inizio turno <strong>{{(observableApplicationStatus | async)?.currentTurn?._startTurnDate | date: 'HH:mm'}}</strong></span>
                     </div>
                 </div>
             </a>
@@ -45,30 +47,68 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" style="padding-left: 1px">
+            <a class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
                         <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
                     </div>
-                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
-                        <i class="fa fa-camera  fa-2x" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
-                        <i class="fa fa-bell  fa-2x" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
-                        <i class="fa fa-users  fa-2x" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
-                        <i class="fa fa-wifi  fa-2x" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
-                        <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
-                    </div>
-
 
                 </div>
             </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link grouped" style="padding-left: 1px">
+                <div class="row">
+                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                        <i class="fa fa-camera  fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link grouped" style="padding-left: 1px">
+                <div class="row">
+                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                        <i class="fa fa-bell  fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link grouped" style="padding-left: 1px">
+                <div class="row">
+                    <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                        <i class="fa fa-users  fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item grouped">
+            <a class="nav-link" style="padding-left: 1px">
+                <div class="row">
+                    <div [ngClass]="{'connected' : connected}" class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                        <i class="fa fa-wifi  fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+            <a href="javascript:void(0)" class="nav-link grouped" ngbDropdownToggle>
+                <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                    <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <!-- <a class="dropdown-item" href="javascript:void(0)">
+                    <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                </a>
+                <a class="dropdown-item" href="javascript:void(0)">
+                    <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
+                </a>-->
+                <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                    <i class="fa fa-fw fa-power-off"></i> {{ 'Fine Turno' | translate }}
+                </a>
+            </div>
         </li>
 
     </ul>

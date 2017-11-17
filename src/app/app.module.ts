@@ -5,10 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { ServiceModule } from './service/service.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { BlockUIModule } from 'ng-block-ui';
+import { MaterialModule } from '@blox/material';
+
+
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -20,9 +24,12 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
     imports: [
         CommonModule,
+        MaterialModule,
+        BlockUIModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        ServiceModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -36,4 +43,4 @@ export function createTranslateLoader(http: HttpClient) {
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
