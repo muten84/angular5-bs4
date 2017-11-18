@@ -9,7 +9,7 @@ export class TimeService {
     getCurrentTime(): Promise<Date> {
         /*return this.http.get(this.currentPriceUrl).toPromise()
           .then(response => response.json().bpi[currency].rate);*/
-        let p: Promise<Date> = new Promise<Date>((resolve, reject) => {
+        const p: Promise<Date> = new Promise<Date>((resolve, reject) => {
             resolve(new Date());
         });
         return p;

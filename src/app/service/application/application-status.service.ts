@@ -2,7 +2,7 @@ import { Inject, Injectable, Optional } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import * as m from './model/index';
 import { Subscriber, Observable } from 'rxjs/Rx';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
 
 @Injectable()
 export class ApplicationStatusService {
