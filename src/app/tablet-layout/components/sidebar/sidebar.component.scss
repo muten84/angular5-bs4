@@ -1,6 +1,12 @@
 $topnav-background-color: #03161f;
 $topnav-height: 65px;
 $sidebar-border-bottom-color: #263238;
+[mdcButton] {
+    /*  margin-right: 16px;
+    margin-bottom: 16px; */
+    height: 51px;
+}
+
 
 /*
 .sidebar-menu-item-container {

@@ -47,21 +47,21 @@ export class HeaderComponent implements OnInit {
             this.connected = val.connectionStatus.connected;
 
             this.blockUI.stop();
-        })
-        //observable dell'orario
+        });
+        // observable dell'orario
         this.observableCurrentTime = new Observable<Date>((observer: Subscriber<Date>) => {
 
             /**/
             setInterval(() => {
-                console.log("setInterval  from  " + (observer));
+                console.log('setInterval  from  ' + (observer));
                 this.timeService.getAsyncCurrentTime().then(
                     (d) => {
-                        observer.next(d)
+                        observer.next(d);
                     },
                     (err) => {
-                        observer.next(err)
+                        observer.next(err);
                     }
-                )
+                );
             }, 1000);
 
         });
@@ -90,6 +90,10 @@ export class HeaderComponent implements OnInit {
 
     changeLang(language: string) {
         this.translate.use(language);
+    }
+
+    location() {
+        console.log("map marker clicked!");
     }
 
 }

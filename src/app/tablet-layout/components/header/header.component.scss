@@ -25,17 +25,17 @@ $success-color: #81b85c !default;
         height: $topnav-height;
         .navbar-brand {
             color: #fff;
-            border-right: 0.1px;
+            /*  border-right: 0.1px;
             border-right-color: #072c3f;
-            border-right-style: groove;
+            border-right-style: groove; */
             padding-right: 6px;
             height: $topnav-height;
         }
         .nav-link {
             color: #fff;
-            border-right: 0.1px;
+            /* border-right: 0.1px;
             border-right-color: #072c3f;
-            border-right-style: groove;
+            border-right-style: groove; */
             padding-right: 6px;
             height: $topnav-height;
             .row {
@@ -44,6 +44,8 @@ $success-color: #81b85c !default;
         }
         a.nav-link.grouped {
             border: 0px !important;
+            padding-right: 20px !important;
+            padding-left: 20px !important;
         }
         .nav-item>a {
             color: #ecf0f1;

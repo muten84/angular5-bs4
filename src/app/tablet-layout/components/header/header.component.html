@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top rounded" *blockUI="'header-section'">
+<nav [mdcElevation]="9" [animateTransition]="true" class="navbar navbar-expand-lg fixed-top rounded" *blockUI="'header-section'">
     <!--    <div class="navbar-nav">     
         <a class="navbar-brand logo" href="#"><img src="assets/images/logo-header.png" /></a>
     </div>
@@ -11,13 +11,13 @@
                 <small>DATA</small></h6>
         </a>
     </div>-->
-    <ul class="nav">
+    <ul [mdcElevation]="1" class="nav">
         <li class="nav-item">
             <!--<a class="nav-link active" href="#">HTML</a>-->
             <a class="nav-link logo"><img height="50px" src="assets/images/logo-header.png" /></a>
         </li>
         <!-- item orario -->
-        <li class="nav-item">
+        <li mdcRipple [mdcElevation]="1" class="nav-item">
             <a class="nav-link">
                 <div class="row">
                     <div class="col-xs-1" style="padding-right: 25px; padding-top: 9px;">
@@ -32,7 +32,7 @@
             </a>
         </li>
         <!-- item stato turno -->
-        <li class="nav-item">
+        <li mdcRipple [mdcElevation]="1" class="nav-item">
             <a class="nav-link">
                 <div class="col-xs-1" style="padding-right: 20px;padding-left: 20px">
                     <div class="row">
@@ -46,8 +46,8 @@
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link grouped" style="padding-left: 1px">
+        <li mdcRipple [mdcElevation]="1" [animateTransition]="true" class="nav-item">
+            <a (click)="location()" class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
                         <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
@@ -56,7 +56,7 @@
                 </div>
             </a>
         </li>
-        <li class="nav-item">
+        <li mdcRipple [mdcElevation]="1" class="nav-item">
             <a class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
@@ -65,7 +65,7 @@
                 </div>
             </a>
         </li>
-        <li class="nav-item">
+        <li mdcRipple [mdcElevation]="1" class="nav-item">
             <a class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
@@ -74,7 +74,7 @@
                 </div>
             </a>
         </li>
-        <li class="nav-item">
+        <li mdcRipple [mdcElevation]="1" class="nav-item">
             <a class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
@@ -83,8 +83,8 @@
                 </div>
             </a>
         </li>
-        <li class="nav-item grouped">
-            <a class="nav-link" style="padding-left: 1px">
+        <li mdcRipple [mdcElevation]="1" lass="nav-item grouped">
+            <a class="nav-link grouped" style="padding-left: 1px">
                 <div class="row">
                     <div [ngClass]="{'connected' : connected}" class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
                         <i class="fa fa-wifi  fa-2x" aria-hidden="true"></i>
@@ -92,11 +92,14 @@
                 </div>
             </a>
         </li>
-        <li class="nav-item dropdown" ngbDropdown>
+        <li [mdcElevation]="1" class="nav-item dropdown" ngbDropdown>
             <a href="javascript:void(0)" class="nav-link grouped" ngbDropdownToggle>
-                <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
+                <!-- <div class="col-md-2" style="padding-right: 10px; padding-top: 9px;">
                     <i class="fa fa-cog fa-2x" aria-hidden="true"></i>
-                </div>
+                </div> -->
+                <span mdcIconToggle labelOn="" labelOff="" iconOn="fa-cogs" iconOff="fa-cog" [disabled]="false" [(isOn)]="cog">
+                <i mdcIconToggleIcon style="color: #fff" class="fa fa-2x"></i>
+              </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <!-- <a class="dropdown-item" href="javascript:void(0)">

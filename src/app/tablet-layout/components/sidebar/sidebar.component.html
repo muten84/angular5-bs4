@@ -1,7 +1,7 @@
-<div class="sideabar-version"></div>
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+<div [mdcElevation]="15" [animateTransition]="true" class="sideabar-version"></div>
+<nav [mdcElevation]="15" [animateTransition]="true" class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
+        <a mdcButton compact raised routerLink="/dump118" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
             <div class="row sidebar-menu-item-container">
                 <div class="col-md-3 sidebar-menu-item-icon">
                     <i class="fa fa-2x fa-rss"></i>
@@ -11,7 +11,7 @@
                 </div>
             </div>
         </a>
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
+        <a mdcButton compact raised routerLink="/map" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
             <div class="row sidebar-menu-item-container">
                 <div class="col-md-3 sidebar-menu-item-icon">
                     <i class="fa fa-2x fa-map-marker"></i>
