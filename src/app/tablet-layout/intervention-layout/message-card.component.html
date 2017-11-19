@@ -1,0 +1,17 @@
+<div [@routerTransition]>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Attenzione!</mat-card-title>
+            <mat-card-subtitle>Nuovo intervento</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                Nuova attivazione dalla centrale operativa. Premere OK per confermare.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button [routerLink]="['/intervention/newIntervention']" mat-button>OK</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

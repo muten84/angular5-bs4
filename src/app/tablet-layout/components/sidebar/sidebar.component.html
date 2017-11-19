@@ -1,25 +1,43 @@
-<div [mdcElevation]="15" [animateTransition]="true" class="sideabar-version"></div>
-<nav [mdcElevation]="15" [animateTransition]="true" class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-    <ul class="list-group">
-        <a mdcButton compact raised routerLink="/dump118" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
-            <div class="row sidebar-menu-item-container">
-                <div class="col-md-3 sidebar-menu-item-icon">
-                    <i class="fa fa-2x fa-rss"></i>
+<div *ngIf="!intervention">
+    <div [mdcElevation]="15" [animateTransition]="true" class="sideabar-version"></div>
+    <nav [mdcElevation]="15" [animateTransition]="true" class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+        <ul class="list-group">
+            <a mdcButton compact raised routerLink="/dump118" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
+                <div class="row sidebar-menu-item-container">
+                    <div class="col-md-3 sidebar-menu-item-icon">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </div>
+                    <div class="col-md-8 sidebar-menu-item">
+                        <span>&nbsp;{{ 'DUMP 118' | translate }}</span>
+                    </div>
                 </div>
-                <div class="col-md-8 sidebar-menu-item">
-                    <span>&nbsp;{{ 'DUMP 118' | translate }}</span>
+            </a>
+            <a mdcButton compact raised routerLink="/map" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
+                <div class="row sidebar-menu-item-container">
+                    <div class="col-md-3 sidebar-menu-item-icon">
+                        <i class="fa fa-2x fa-map-marker"></i>
+                    </div>
+                    <div class="col-md-8 sidebar-menu-item">
+                        <span>&nbsp;{{ 'Mappa' | translate }}</span>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a mdcButton compact raised routerLink="/map" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
-            <div class="row sidebar-menu-item-container">
-                <div class="col-md-3 sidebar-menu-item-icon">
-                    <i class="fa fa-2x fa-map-marker"></i>
+            </a>
+        </ul>
+    </nav>
+</div>
+<div *ngIf="intervention">
+    <nav [mdcElevation]="15" [animateTransition]="true" class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+        <ul class="list-group">
+            <a mdcButton compact raised routerLink="/dump118" [routerLinkActive]="['router-link-active']" class="list-group-item" style="padding: 0px">
+                <div class="row sidebar-menu-item-container">
+                    <div class="col-md-3 sidebar-menu-item-icon">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </div>
+                    <div class="col-md-8 sidebar-menu-item">
+                        <span>&nbsp;{{ 'Scheda Paziente' | translate }}</span>
+                    </div>
                 </div>
-                <div class="col-md-8 sidebar-menu-item">
-                    <span>&nbsp;{{ 'Mappa' | translate }}</span>
-                </div>
-            </div>
-        </a>
-    </ul>
-</nav>
+            </a>
+        </ul>
+    </nav>
+</div>

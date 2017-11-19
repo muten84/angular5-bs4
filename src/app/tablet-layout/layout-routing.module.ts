@@ -10,7 +10,7 @@ const routes: Routes = [
                  { path: '', redirectTo: 'dump118' },
                  { path: 'dump118', loadChildren: './dump118/dump118.module#Dump118Module' },
                  { path: 'map', loadChildren: './mappa/map.module#MapModule' }
-             ]
+            ]
     }
 ];
 
